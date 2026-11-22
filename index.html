@@ -38,12 +38,18 @@
   </div>
 
   <iframe id="app"
-    src="https://script.google.com/macros/s/AKfycbyACRDc26Of94JrsG2rnF9JUGxTyKXLnN216W8VylfjBh1OnvS3sW5jQkXvRmFeI1pG9g/exec"
     title="TFMRC SOA Portal"
     allow="clipboard-read; clipboard-write; fullscreen"
     referrerpolicy="no-referrer-when-downgrade"></iframe>
 
   <script>
+    var APP_URL = "https://script.google.com/macros/s/AKfycbyACRDc26Of94JrsG2rnF9JUGxTyKXLnN216W8VylfjBh1OnvS3sW5jQkXvRmFeI1pG9g/exec";
+    // Auto log-in: pass the one-time pass from the TFMRC Portal (?sso=...) to the app,
+    // then remove it from the address bar.
+    var sso = new URLSearchParams(location.search).get('sso');
+    document.getElementById('app').src = APP_URL + (sso ? '?sso=' + encodeURIComponent(sso) : '');
+    if (sso && history.replaceState) history.replaceState(null, '', location.pathname);
+
     var boot = document.getElementById('boot');
     document.getElementById('app').addEventListener('load', function () {
       setTimeout(function () { boot.classList.add('done'); }, 250);
