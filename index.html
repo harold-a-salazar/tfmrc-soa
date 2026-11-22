@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TFMRC SOA Portal</title>
+<meta name="description" content="TFMRC SOA Portal — Treasury and Financial Management Reporting and Compliance">
+<meta name="theme-color" content="#5C4AB7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235C4AB7'/%3E%3Cg fill='%23fff'%3E%3Crect x='15' y='14' width='6' height='36'/%3E%3Crect x='29' y='10' width='6' height='13'/%3E%3Crect x='29' y='26' width='6' height='28'/%3E%3Crect x='43' y='14' width='6' height='36'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://script.google.com">
+<link rel="preconnect" href="https://script.googleusercontent.com">
+<style>
+  html, body { margin: 0; height: 100%; background: #5544B5; overflow: hidden; }
+  iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+  #boot {
+    position: fixed; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+    color: #fff; font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; text-align: center;
+    background: radial-gradient(1200px 800px at 28% 14%, #7766D0 0%, #6553C4 38%, #5544B5 70%, #4A3AA6 100%);
+    transition: opacity .35s ease;
+  }
+  #boot.done { opacity: 0; pointer-events: none; }
+  .mark { width: 46px; height: 64px; }
+  .spin { width: 38px; height: 38px; border-radius: 50%; border: 4px solid rgba(255,255,255,.2); border-top-color: #C8E878; animation: sp .8s linear infinite; }
+  @keyframes sp { to { transform: rotate(360deg); } }
+  h1 { margin: 0; font-size: 22px; font-weight: 800; }
+  p { margin: 0; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+  #slow { display: none; font-size: 13px; opacity: .9; letter-spacing: 0; text-transform: none; }
+  #slow a { color: #C8E878; font-weight: 700; }
+</style>
+</head>
+<body>
+  <div id="boot">
+    <svg class="mark" viewBox="0 0 40 56" fill="#fff" aria-hidden="true"><rect x="0" y="5" width="7" height="46"/><rect x="16.5" y="0" width="7" height="17"/><rect x="16.5" y="21" width="7" height="35"/><rect x="33" y="5" width="7" height="46"/></svg>
+    <h1>TFMRC SOA Portal</h1>
+    <p>Treasury and Financial Management Reporting and Compliance</p>
+    <div class="spin"></div>
+    <p id="slow">Taking a while? <a href="https://script.google.com/macros/s/AKfycbyACRDc26Of94JrsG2rnF9JUGxTyKXLnN216W8VylfjBh1OnvS3sW5jQkXvRmFeI1pG9g/exec" target="_top">Open the portal directly</a></p>
+  </div>
+
+  <iframe id="app"
+    src="https://script.google.com/macros/s/AKfycbyACRDc26Of94JrsG2rnF9JUGxTyKXLnN216W8VylfjBh1OnvS3sW5jQkXvRmFeI1pG9g/exec"
+    title="TFMRC SOA Portal"
+    allow="clipboard-read; clipboard-write; fullscreen"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <script>
+    var boot = document.getElementById('boot');
+    document.getElementById('app').addEventListener('load', function () {
+      setTimeout(function () { boot.classList.add('done'); }, 250);
+    });
+    setTimeout(function () { document.getElementById('slow').style.display = 'block'; }, 12000);
+  </script>
+</body>
+</html>
